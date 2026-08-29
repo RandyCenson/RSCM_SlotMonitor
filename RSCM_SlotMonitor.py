@@ -1,6 +1,8 @@
 import requests
 import time
 import random
+from dotenv import load_dotenv
+import os
 
 from datetime import datetime, timedelta
 from requests.adapters import HTTPAdapter
@@ -11,19 +13,25 @@ from requests.exceptions import RequestException
 # CONFIG
 # =========================
 
-URL = "https://ap3.rscm.co.id/api/v1/rscmku/schedule-doctor"
+load_dotenv()
+
+URL = os.getenv("RSCM_API")
 
 # TANGGAL_AWAL = datetime.today().strftime("%Y-%m-%d")
-TANGGAL_AWAL = "2026-07-13"
-JUMLAH_HARI = 10
+TANGGAL_AWAL = "2026-08-11"
+JUMLAH_HARI = 1
+
+# TANGGAL_AWAL = ["2026-08-11", "2026-08-18"]
+# JUMLAH_HARI = len(TANGGAL_AWAL)
+
+
 
 DELAY_MIN = 1
 DELAY_MAX = 2
 
 BASE_PAYLOAD = {
     "appointment_date": TANGGAL_AWAL,
-    "poli_id": "1169"
-    # 1057
+    "poli_id": os.getenv("POLI_ID")
 }
 
 HEADERS = {
@@ -54,8 +62,8 @@ session.mount("https://", adapter)
 # =========================
 def kirim_telegram(pesan):
 
-    TOKEN = "8920592883:AAHZcl6j4mz23uVYrd1nkgNu-OzGkS0aalc"
-    CHAT_ID = "5382745861"
+    TOKEN = os.getenv("BOT_TOKEN")
+    CHAT_ID = os.getenv("CHAT_ID")
     
     for i in range (5):
         try:
@@ -148,7 +156,7 @@ s.d
 
 """
 
-report_ada_slot = "ADA SLOT A3 ! \n"
+report_ada_slot = "ADA SLOT A3! \n"
 
 if bank_date:
     report_ada_slot += report

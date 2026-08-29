@@ -1,7 +1,5 @@
 @echo off
 
-cd /d "C:\Users\COMPUTER WISA\Desktop\test"
+cd /d "C:\Users\COMPUTER WISA\Desktop\RSCM_SlotMonitor"
 
-py RSCM_testing_API.py
-
-pause
+py RSCM_SlotMonitorAnnas.py
