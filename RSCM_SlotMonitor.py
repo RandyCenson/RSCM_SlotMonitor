@@ -183,18 +183,3 @@ kirim_telegram(report)
     
 
 
-
-# import requests
-
-# TOKEN = "8920592883:AAHZcl6j4mz23uVYrd1nkgNu-OzGkS0aalc"
-# CHAT_ID = "5382745861"
-
-# response = requests.get(
-#     f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-#     params={
-#         "chat_id": CHAT_ID,
-#         "text": "Tes dari Python"
-#     }
-# )
-
-# print(response.json())
